@@ -44,3 +44,19 @@ for key,value := range m{ // iterate through maps
     fmt.Println("Key:", key, "Value:", value)
 }
 ```
+
+## Testing
+* From what I can tell, anything with `*_test.go` will be treated as a test when you run `go test`
+* that command gives a pretty report if the tests you ran worked
+
+## Dependency management
+
+* to download all dependencies you run `go get .`
+* to get a specific version run `go get example.com/theirmodule@v1.3.4` with an `@` after the module with the version number
+* version can be "latest": `go get example.com/theirmodule@latest`
+
+### Upgrading dependencies
+* list modules that can be updated `go list -m -u all`, after that you download the latest version of them
+* to upgrade all: `go get -u` then `go mod tidy`
+* recursively upgrade packages in subdirs: `go get -u ./...`
+
